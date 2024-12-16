@@ -23,32 +23,20 @@
 
         @keyframes move {
             0% {
-                transform: translateX(0) translateY(0);
+                transform: translate(0, 0);
+                opacity: 0.8;
             }
             100% {
-                transform: translateX(100vw) translateY(100vh);
+                transform: translate(100vw, 100vh);
+                opacity: 0; /* Fade out when reaching the end */
             }
         }
-
-        /* Existing custom dots */
-        .dot:nth-child(1) { width: 20px; height: 20px; top: 10%; left: 10%; animation-duration: 15s; }
-        .dot:nth-child(2) { width: 30px; height: 30px; top: 20%; left: 20%; animation-duration: 12s; }
-        .dot:nth-child(3) { width: 15px; height: 15px; top: 30%; left: 30%; animation-duration: 18s; }
-        .dot:nth-child(4) { width: 25px; height: 25px; top: 40%; left: 40%; animation-duration: 10s; }
-        .dot:nth-child(5) { width: 35px; height: 35px; top: 50%; left: 50%; animation-duration: 14s; }
     </style>
 </head>
 <body>
-    <!-- Existing dots -->
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-
     <div class="center">
-        <h1 id="title"></h1>
-        <p id="subtitle"></p>
+        <h1 id="title">Welcome to the Game</h1>
+        <p id="subtitle">Find your favorite games!</p>
     </div>
     <div class="center">
         <input type="text" id="searchInput" placeholder="Search games" />
@@ -61,26 +49,31 @@
 
     <script>
         // Function to create small dots with random sizes and opacities
-        function createDot(x, y, size, opacity) {
+        function createDot() {
             const dot = document.createElement('div');
             dot.className = 'dot';
+
+            // Set random size and position
+            const size = Math.random() * 5 + 5; // Size between 5 and 10 pixels
             dot.style.width = `${size}px`;
             dot.style.height = `${size}px`;
-            dot.style.left = `${x}px`;
-            dot.style.top = `${y}px`;
-            dot.style.opacity = opacity;
+            dot.style.left = `${Math.random() * window.innerWidth}px`;
+            dot.style.top = `${Math.random() * window.innerHeight}px`;
+
+            // Set a random animation duration
+            const duration = Math.random() * 5 + 5; // Duration between 5s and 10s
+            dot.style.animationDuration = `${duration}s`;
+
             document.body.appendChild(dot);
+
+            // Remove the dot after animation is done
+            setTimeout(() => {
+                dot.remove();
+            }, duration * 1000); // Duration in milliseconds
         }
 
-        const numDots = 100;  // Number of additional small dots
-
-        for (let i = 0; i < numDots; i++) {
-            const x = Math.random() * window.innerWidth;  // Random x-position
-            const y = Math.random() * window.innerHeight; // Random y-position
-            const size = Math.random() * 5 + 5; // Small size between 5 and 10 pixels
-            const opacity = Math.random(); // Random opacity between 0 and 1
-            createDot(x, y, size, opacity);
-        }
+        // Create a new dot every 500 milliseconds
+        setInterval(createDot, 500);
     </script>
 </body>
 </html>
