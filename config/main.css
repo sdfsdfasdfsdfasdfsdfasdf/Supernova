@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
 :root {
-    --background-color: #32017B; /* Darker purple for background */
+    --background-color: #4B0082; /* Dark purple for background */
     --text-color: white !important;
     --accent-color: #2e65bf !important; /* Darker purple for accent */
 }
@@ -90,69 +90,4 @@ body {
     flex: 1 0 200px; /* Flexbox item properties */
     max-width: 200px; /* Limit maximum width */
     display: inline-block;
-    transition: transform 0.3s ease;
-    border: 2px;
-    border-radius: 10px;
-}
-
-.game:hover {
-    transform: scale(0.95); /* Scale up on hover */
-    border: 2px solid var(--accent-color);
-}
-
-/* Game image styles */
-.game img {
-    width: 100%; /* Occupy full width of container */
-    max-width: 100%; /* Ensure image does not exceed container width */
-    height: auto; /* Maintain aspect ratio */
-    cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-/* Game description styles */
-.game p {
-    margin-top: 5px;
-    font-weight: 600;
-}
-
-/* Responsive adjustments */
-@media only screen and (max-width: 600px) {
-    .game {
-        flex-basis: calc(50% - 20px); /* Two games per row */
-    }
-}
-
-@media only screen and (max-width: 400px) {
-    .game {
-        flex-basis: calc(100% - 20px); /* Single game per row */
-    }
-}
-
-.center {
-    justify-content: center;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-}
-
-@media only screen and (max-width: 450px) {
-    #searchInput {
-        width: 200px;
-    }
-}
-
-.footer {
-    margin: 10px auto;
-    bottom: 0;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-}
-
-.link {
-    color: var(--accent-color);
-    text-decoration: none;
-}
-
-/* Other styles as needed... */
+    transition: transform 0.3
