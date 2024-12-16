@@ -33,40 +33,32 @@ body {
     position: absolute;
     background-color: white; /* Dots are white */
     border-radius: 50%;
-    animation: moveDots 10s infinite;
+    width: 10px; /* Size of the dots */
+    height: 10px; /* Size of the dots */
+    animation: moveDots linear; /* Use linear animation so they continuously move */
     opacity: 0.7; /* Slightly transparent for effect */
 }
 
 @keyframes moveDots {
     0% {
         transform: translate(0, 0);
+        opacity: 0.7; /* Start opaque */
     }
     100% {
         transform: translate(100vw, 100vh);
+        opacity: 0; /* Fade out by the end */
     }
 }
 
-@keyframes fade {
-    0% { opacity: 0.7; }
-    50% { opacity: 0.1; }
-    100% { opacity: 0.7; }
-}
-
-/* Add multiple dots */
-.dot:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
-.dot:nth-child(2) { top: 30%; left: 50%; animation-delay: 1s; }
-.dot:nth-child(3) { top: 70%; left: 70%; animation-delay: 2s; }
-.dot:nth-child(4) { top: 20%; left: 80%; animation-delay: 3s; }
-.dot:nth-child(5) { top: 60%; left: 40%; animation-delay: 4s; }
+/* Add other styles here as needed... */
 
 /* Search input styles */
 #searchInput {
     padding: 17px;
     box-sizing: border-box;
-    margin-bottom: 20px;
+    margin: 20px auto;
     width: 100%; /* Occupy full width */
     max-width: 400px; /* Limit maximum width */
-    margin: 20px auto; /* Center horizontally */
     border-radius: 10px;
     border: none;
     font-size: 24px;
@@ -75,6 +67,7 @@ body {
     text-align: center;
     transition: all 0.3s ease-in-out;
 }
+
 #searchInput:focus {
     border: 3px solid var(--accent-color);
 }
@@ -99,6 +92,7 @@ body {
     border: 2px;
     border-radius: 10px;
 }
+
 .game:hover {
     transform: scale(0.95); /* Scale up on hover */
     border: 2px solid var(--accent-color);
@@ -159,4 +153,4 @@ body {
     text-decoration: none;
 }
 
-/* Create the dots in the HTML */
+/* Other styles as needed... */
