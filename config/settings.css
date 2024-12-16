@@ -1,1 +1,74 @@
+/* Basic Reset */
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
 
+/* General Styles */
+body {
+    font-family: 'Ubuntu', sans-serif; /* Use the same font as your main page */
+    background-color: #4B0082; /* Dark purple background (same as your main page) */
+    color: white; /* Contrast color for text */
+    padding: 20px; /* Space around content */
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px; /* Space below heading */
+}
+
+h2 {
+    font-size: 24px;
+    margin-top: 20px; /* Space above subheadings */
+    margin-bottom: 10px; /* Space below subheadings */
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column; /* Stack form elements vertically */
+    max-width: 400px; /* Limit width of form */
+    margin: 0 auto; /* Center the form */
+}
+
+label {
+    margin-bottom: 5px; /* Space below labels */
+}
+
+input[type="text"], input[type="email"], input[type="password"], select {
+    padding: 10px;
+    margin-bottom: 20px; /* Space below inputs */
+    border: 1px solid #ccc; /* Border for inputs */
+    border-radius: 5px; /* Rounded corners */
+    outline: none; /* Remove default outline */
+    transition: border-color 0.3s; /* Smooth transition for border color */
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, select:focus {
+    border-color: var(--accent-color); /* Change border color on focus */
+}
+
+/* Button Styles */
+button {
+    padding: 10px 15px; /* Padding for button */
+    background-color: var(--accent-color); /* Accent color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #2d5d99; /* Darken on hover */
+}
+
+/* Link Styles */
+a {
+    color: var(--accent-color); /* Accent color for links */
+    text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
