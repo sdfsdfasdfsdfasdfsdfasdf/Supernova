@@ -14,7 +14,7 @@ import "/./config/custom.js";
 
 var serverUrl1 = "https://parcoil-assets.onrender.com";
 var currentPageTitle = document.title;
-document.title = `${currentPageTitle} | ${sitename}`;
+document.title = `Classroom`;
 let gamesData = []; 
 
 function displayFilteredGames(filteredGames) {
