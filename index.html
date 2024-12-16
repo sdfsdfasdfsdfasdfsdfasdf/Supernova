@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <link rel="stylesheet" href="config/main.css" />
     <script src="config/main.js" type="module"></script>
     <style>
-      body {
-        background-color: purple;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .dot {
-        position: absolute;
-        border-radius: 50%;
-        background-color: white;
-        opacity: 0.8;
-        animation: move 10s infinite linear;
-      }
-
-      @keyframes move {
-        0% {
-          transform: translateX(0) translateY(0);
+        body {
+            background-color: purple;
+            overflow: hidden;
+            position: relative;
         }
-        100% {
-          transform: translateX(100vw) translateY(100vh);
-        }
-      }
 
-      /* Generate multiple dots with different sizes and animations */
-      .dot:nth-child(1) { width: 20px; height: 20px; top: 10%; left: 10%; animation-duration: 15s; }
-      .dot:nth-child(2) { width: 30px; height: 30px; top: 20%; left: 20%; animation-duration: 12s; }
-      .dot:nth-child(3) { width: 15px; height: 15px; top: 30%; left: 30%; animation-duration: 18s; }
-      .dot:nth-child(4) { width: 25px; height: 25px; top: 40%; left: 40%; animation-duration: 10s; }
-      .dot:nth-child(5) { width: 35px; height: 35px; top: 50%; left: 50%; animation-duration: 14s; }
+        .dot {
+            position: absolute;
+            border-radius: 50%;
+            background-color: white;
+            opacity: 0.8;
+            animation: move 10s infinite linear;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+            100% {
+                transform: translateX(100vw) translateY(100vh);
+            }
+        }
+
+        /* Existing custom dots */
+        .dot:nth-child(1) { width: 20px; height: 20px; top: 10%; left: 10%; animation-duration: 15s; }
+        .dot:nth-child(2) { width: 30px; height: 30px; top: 20%; left: 20%; animation-duration: 12s; }
+        .dot:nth-child(3) { width: 15px; height: 15px; top: 30%; left: 30%; animation-duration: 18s; }
+        .dot:nth-child(4) { width: 25px; height: 25px; top: 40%; left: 40%; animation-duration: 10s; }
+        .dot:nth-child(5) { width: 35px; height: 35px; top: 50%; left: 50%; animation-duration: 14s; }
     </style>
-  </head>
-  <body>
-    <!-- Dots added below the opening body tag -->
+</head>
+<body>
+    <!-- Existing dots -->
     <div class="dot"></div>
     <div class="dot"></div>
     <div class="dot"></div>
@@ -47,16 +47,40 @@
     <div class="dot"></div>
 
     <div class="center">
-      <h1 id="title"></h1>
-      <p id="subtitle"></p>
+        <h1 id="title"></h1>
+        <p id="subtitle"></p>
     </div>
     <div class="center">
-      <input type="text" id="searchInput" placeholder="Search games" />
+        <input type="text" id="searchInput" placeholder="Search games" />
     </div>
     <div id="gamesContainer"></div>
     <div class="footer">
-      <a style="font-weight: 700">a site by
-      </a><a style="font-weight: 700" class="link" href="https://dsc.gg/parcoil">parcoil network</a>
+        <a style="font-weight: 700">a site by</a>
+        <a style="font-weight: 700" class="link" href="https://dsc.gg/parcoil">parcoil network</a>
     </div>
-  </body>
+
+    <script>
+        // Function to create small dots with random sizes and opacities
+        function createDot(x, y, size, opacity) {
+            const dot = document.createElement('div');
+            dot.className = 'dot';
+            dot.style.width = `${size}px`;
+            dot.style.height = `${size}px`;
+            dot.style.left = `${x}px`;
+            dot.style.top = `${y}px`;
+            dot.style.opacity = opacity;
+            document.body.appendChild(dot);
+        }
+
+        const numDots = 100;  // Number of additional small dots
+
+        for (let i = 0; i < numDots; i++) {
+            const x = Math.random() * window.innerWidth;  // Random x-position
+            const y = Math.random() * window.innerHeight; // Random y-position
+            const size = Math.random() * 5 + 5; // Small size between 5 and 10 pixels
+            const opacity = Math.random(); // Random opacity between 0 and 1
+            createDot(x, y, size, opacity);
+        }
+    </script>
+</body>
 </html>
