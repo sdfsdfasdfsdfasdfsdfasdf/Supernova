@@ -13,7 +13,8 @@
             position: relative;
             height: 100vh; /* Full height for body */
             margin: 0;
-            font-family: Arial, sans-serif; /* General font */
+            font-family: Verdana, Geneva, sans-serif; /* More standard fonts */
+            color: white; /* Set text color to white for better contrast */
         }
         
         .dot {
