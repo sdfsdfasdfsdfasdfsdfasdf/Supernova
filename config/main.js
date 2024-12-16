@@ -10,7 +10,7 @@ import "/./config/custom.js";
 
 var serverUrl1 = "https://parcoil-assets.onrender.com";
 var currentPageTitle = document.title;
-document.title = `Classroom`;
+document.title = `Boomcards`;
 let gamesData = []; 
 
 function displayFilteredGames(filteredGames) {
