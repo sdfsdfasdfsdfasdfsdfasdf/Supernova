@@ -6,8 +6,10 @@
     <title>Home</title>
     
     <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-   
+    <link rel="https://classroom.google.com/" href="favicon.ico" type="google-classroom-logo.png" />
+    <!-- Alternatively, if you have a PNG file -->
+    <!-- <link rel="icon" href="favicon.png" type="image/png" /> -->
+
     <link rel="stylesheet" href="config/main.css" />
     <script src="config/main.js" type="module"></script>
     <style>
@@ -35,29 +37,12 @@
                 opacity: 0; /* Fade out when reaching the end */
             }
         }
-
-        .open-website-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: white;
-            color: purple;
-            border: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .open-website-button:hover {
-            background-color: lightgrey;
-        }
     </style>
 </head>
 <body>
     <div class="center">
         <h1 id="title">Welcome to the Game</h1>
         <p id="subtitle">Find your favorite games!</p>
-        <button class="open-website-button" onclick="openBlankTab()">Open Game Page</button>
     </div>
     <div class="center">
         <input type="text" id="searchInput" placeholder="Search games" />
@@ -69,104 +54,21 @@
     </div>
 
     <script>
-        // Function to open a new tab and write the game page content into it
-        function openBlankTab() {
-            const newTab = window.open('about:blank', '_blank');
-
-            const sitename = "Supernova"; 
-            const subtext = "Made by a AMS 7th grader"; 
-
-            const serverUrl1 = "https://parcoil-assets.onrender.com";
-            const gamesData = []; 
-
-            // Creating the HTML content for the new tab
-            newTab.document.write(`
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8" />
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                    <title>${sitename}</title>
-                    <link rel="stylesheet" href="config/main.css" />
-                </head>
-                <body>
-                    <div class="center">
-                        <h1 id="title">${sitename}</h1>
-                        <p id="subtitle">${subtext}</p>
-                        <input type="text" id="searchInput" placeholder="Search games" />
-                    </div>
-                    <div id="gamesContainer"></div>
-                    <script>
-                        var serverUrl1 = "${serverUrl1}";
-                        let gamesData = [];
-
-                        function displayFilteredGames(filteredGames) {
-                            const gamesContainer = document.getElementById("gamesContainer");
-                            gamesContainer.innerHTML = "";
-
-                            filteredGames.forEach((game) => {
-                                const gameDiv = document.createElement("div");
-                                gameDiv.classList.add("game");
-
-                                const gameImage = document.createElement("img");
-                                gameImage.src = \`\${serverUrl1}/\${game.url}/\${game.image}\`;
-                                gameImage.alt = game.name;
-                                gameImage.onclick = () => {
-                                    window.location.href = \`play.html?gameurl=\${game.url}/\`;
-                                };
-
-                                const gameName = document.createElement("p");
-                                gameName.textContent = game.name;
-
-                                gameDiv.appendChild(gameImage);
-                                gameDiv.appendChild(gameName);
-                                gamesContainer.appendChild(gameDiv);
-                            });
-                        }
-
-                        function handleSearchInput() {
-                            const searchInputValue = document
-                                .getElementById("searchInput")
-                                .value.toLowerCase();
-                            const filteredGames = gamesData.filter((game) =>
-                                game.name.toLowerCase().includes(searchInputValue)
-                            );
-                            displayFilteredGames(filteredGames);
-                        }
-
-                        fetch("./config/games.json") 
-                            .then((response) => response.json())
-                            .then((data) => {
-                                gamesData = data;
-                                displayFilteredGames(data); 
-                            })
-                            .catch((error) => console.error("Error fetching games:", error));
-
-                        document
-                            .getElementById("searchInput")
-                            .addEventListener("input", handleSearchInput);
-                    <\/script>
-                </body>
-                </html>
-            `);
-            newTab.document.close(); // Close the document to finish rendering
-        }
-
-        // Dots animation function remains the same
+        // Function to create small dots with random sizes and positions
         function createDot() {
             const dot = document.createElement('div');
             dot.className = 'dot';
 
             // Set random size and position
             const size = Math.random() * 5 + 5; // Size between 5 and 10 pixels
-            dot.style.width = \`\${size}px\`;
-            dot.style.height = \`\${size}px\`;
-            dot.style.left = \`\${Math.random() * window.innerWidth}px\`;
-            dot.style.top = \`\${Math.random() * window.innerHeight}px\`;
+            dot.style.width = `${size}px`;
+            dot.style.height = `${size}px`;
+            dot.style.left = `${Math.random() * window.innerWidth}px`;
+            dot.style.top = `${Math.random() * window.innerHeight}px`;
 
             // Set a random animation duration
             const duration = Math.random() * 5 + 5; // Duration between 5s and 10s
-            dot.style.animationDuration = \`\${duration}s\`;
+            dot.style.animationDuration = `${duration}s`;
 
             document.body.appendChild(dot);
 
