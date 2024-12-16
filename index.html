@@ -6,7 +6,7 @@
     <title>Home</title>
     
     <!-- Favicon -->
-    <link rel="https://classroom.google.com/" href="favicon.ico" type="google-classroom-logo.png" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <!-- Alternatively, if you have a PNG file -->
     <!-- <link rel="icon" href="favicon.png" type="image/png" /> -->
 
@@ -37,12 +37,31 @@
                 opacity: 0; /* Fade out when reaching the end */
             }
         }
+
+        /* Style for the button */
+        .open-blank-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: white;
+            color: purple;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .open-blank-button:hover {
+            background-color: lightgrey;
+        }
     </style>
 </head>
 <body>
     <div class="center">
         <h1 id="title">Welcome to the Game</h1>
         <p id="subtitle">Find your favorite games!</p>
+        <!-- Added button to open about:blank -->
+        <button class="open-blank-button" onclick="openBlankTab()">Open about:blank</button>
     </div>
     <div class="center">
         <input type="text" id="searchInput" placeholder="Search games" />
@@ -54,6 +73,11 @@
     </div>
 
     <script>
+        // Function to open about:blank in a new tab
+        function openBlankTab() {
+            window.open('about:blank', '_blank');
+        }
+
         // Function to create small dots with random sizes and positions
         function createDot() {
             const dot = document.createElement('div');
