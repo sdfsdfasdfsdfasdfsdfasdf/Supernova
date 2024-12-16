@@ -17,18 +17,24 @@
             position: absolute;
             border-radius: 50%;
             background-color: white;
-            opacity: 0.8;
-            animation: move 10s infinite linear;
+            opacity: 0; /* Start invisible */
+            animation: fadeInOut 5s infinite; /* Adjusted animation */
         }
 
-        @keyframes move {
+        @keyframes fadeInOut {
             0% {
-                transform: translate(0, 0);
-                opacity: 0.8;
+                transform: translateY(0); /* Start from the bottom */
+                opacity: 0; /* Fully invisible */
+            }
+            20% {
+                opacity: 1; /* Fully visible */
+            }
+            80% {
+                opacity: 1; /* Stay fully visible */
             }
             100% {
-                transform: translate(100vw, 100vh);
-                opacity: 0; /* Fade out when reaching the end */
+                transform: translateY(-100vh); /* Move out of view */
+                opacity: 0; /* Fade out */
             }
         }
     </style>
@@ -48,32 +54,32 @@
     </div>
 
     <script>
-        // Function to create small dots with random sizes and opacities
+        // Function to create small dots with random sizes and positions
         function createDot() {
             const dot = document.createElement('div');
             dot.className = 'dot';
 
-            // Set random size and position
-            const size = Math.random() * 5 + 5; // Size between 5 and 10 pixels
+            // Set random size
+            const size = Math.random() * 10 + 5; // Size between 5 and 15 pixels
             dot.style.width = `${size}px`;
             dot.style.height = `${size}px`;
-            dot.style.left = `${Math.random() * window.innerWidth}px`;
-            dot.style.top = `${Math.random() * window.innerHeight}px`;
+            dot.style.left = `${Math.random() * window.innerWidth}px`; // Random horizontal position
+            dot.style.bottom = '0'; // Start from the bottom
 
-            // Set a random animation duration
-            const duration = Math.random() * 5 + 5; // Duration between 5s and 10s
+            // Set a random animation duration (optional)
+            const duration = Math.random() * 2 + 3; // Duration between 3s and 5s
             dot.style.animationDuration = `${duration}s`;
 
             document.body.appendChild(dot);
 
-            // Remove the dot after animation is done
+            // Remove the dot after its full animation duration
             setTimeout(() => {
                 dot.remove();
             }, duration * 1000); // Duration in milliseconds
         }
 
-        // Create a new dot every 500 milliseconds
-        setInterval(createDot, 500);
+        // Create a new dot every 600 milliseconds
+        setInterval(createDot, 600);
     </script>
 </body>
 </html>
