@@ -9,10 +9,13 @@
     <style>
         body {
             background-color: purple;
-            overflow: hidden;
+            overflow: hidden; /* Prevent scrolling on body */
             position: relative;
+            height: 100vh; /* Full height for body */
+            margin: 0;
+            font-family: Arial, sans-serif; /* General font */
         }
-
+        
         .dot {
             position: absolute;
             border-radius: 50%;
@@ -31,6 +34,58 @@
                 opacity: 0; /* Fade out when reaching the end */
             }
         }
+
+        .center {
+            text-align: center;
+            margin: 20px;
+        }
+
+        #searchInput {
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+
+        #gamesContainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            overflow-y: auto; /* Enable vertical scrolling */
+            height: calc(100vh - 160px); /* Fill remaining height minus header and footer */
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .game {
+            background: white; /* Game card background */
+            margin: 10px;
+            text-align: center;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s;
+            width: 150px; /* Set width of game cards */
+        }
+
+        .game:hover {
+            transform: scale(1.05); /* Scale up on hover */
+        }
+
+        .game img {
+            width: 100%; /* Occupy full width of game card */
+            height: 100px; /* Fixed height for images */
+            object-fit: cover; /* Maintain aspect ratio */
+        }
+
+        .footer {
+            text-align: center;
+            margin: 20px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -41,9 +96,34 @@
     <div class="center">
         <input type="text" id="searchInput" placeholder="Search games" />
     </div>
-    <div id="gamesContainer"></div>
+    
+    <div id="gamesContainer">
+        <!-- Sample Game Cards -->
+        <div class="game">
+            <img src="path/to/game1.jpg" alt="Game 1" />
+            <p>Game 1</p>
+        </div>
+        <div class="game">
+            <img src="path/to/game2.jpg" alt="Game 2" />
+            <p>Game 2</p>
+        </div>
+        <div class="game">
+            <img src="path/to/game3.jpg" alt="Game 3" />
+            <p>Game 3</p>
+        </div>
+        <div class="game">
+            <img src="path/to/game4.jpg" alt="Game 4" />
+            <p>Game 4</p>
+        </div>
+        <div class="game">
+            <img src="path/to/game5.jpg" alt="Game 5" />
+            <p>Game 5</p>
+        </div>
+        <!-- Add more games as needed -->
+    </div>
+
     <div class="footer">
-        <a style="font-weight: 700">a site by</a>
+        <span style="font-weight: 700">a site by</span>
         <a style="font-weight: 700" class="link" href="https://dsc.gg/parcoil">parcoil network</a>
     </div>
 
