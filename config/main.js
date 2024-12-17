@@ -1,7 +1,7 @@
 
 
 var sitename = "Supernova"; // Change this to change the name of your website.
-var subtext = "have some fun!"; // set the subtext
+var subtext = "Ian is a skibidi toilet"; // set the subtext
 
 // more settings in main.css
 
