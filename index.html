@@ -18,25 +18,6 @@
             overflow: hidden;
             position: relative;
         }
-
-        .dot {
-            position: absolute;
-            border-radius: 50%;
-            background-color: white;
-            opacity: 0.8;
-            animation: move 10s infinite linear;
-        }
-
-        @keyframes move {
-            0% {
-                transform: translate(0, 0);
-                opacity: 0.8;
-            }
-            100% {
-                transform: translate(100vw, 100vh);
-                opacity: 0; /* Fade out when reaching the end */
-            }
-        }
     </style>
 </head>
 <body>
@@ -52,38 +33,5 @@
         <a style="font-weight: 700">a site by</a>
         <a style="font-weight: 700" class="link" href="https://dsc.gg/parcoil">parcoil network</a>
     </div>
-
-    <script>
-        // Function to create small dots with random sizes and positions
-        function createDot() {
-            const dot = document.createElement('div');
-            dot.className = 'dot';
-
-            // Set random size and position
-            const size = Math.random() * 5 + 5; // Size between 5 and 10 pixels
-            dot.style.width = `${size}px`;
-            dot.style.height = `${size}px`;
-            dot.style.left = `${Math.random() * window.innerWidth}px`;
-            dot.style.top = `${Math.random() * window.innerHeight}px`;
-
-            // Set a random animation duration
-            const duration = Math.random() * 5 + 5; // Duration between 5s and 10s
-            dot.style.animationDuration = `${duration}s`;
-
-            document.body.appendChild(dot);
-
-            // Remove the dot after animation is done
-            setTimeout(() => {
-                dot.remove();
-            }, duration * 1000); // Duration in milliseconds
-        }
-
-        // Create 3 new dots every 500 milliseconds
-        setInterval(() => {
-            for (let i = 0; i < 3; i++) {
-                createDot();
-            }
-        }, 500);
-    </script>
 </body>
 </html>
