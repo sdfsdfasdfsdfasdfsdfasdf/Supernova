@@ -8,7 +8,7 @@ var subtext = "Ian is a skibidi toilet"; // set the subtext
 
 import "/./config/custom.js";
 
-var serverUrl1 = "https://parcoil-assets.onrender.com";
+var serverUrl1 = "https://gms.parcoil.com";
 var currentPageTitle = document.title;
 document.title = `Home`;
 let gamesData = []; 
